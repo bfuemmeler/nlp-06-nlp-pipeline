@@ -1,6 +1,5 @@
 """
-stage03_transform_case.py
-(EDIT YOUR COPY OF THIS FILE)
+stage03_transform_fuemmeler.py
 
 Source: validated BeautifulSoup object
 Sink:   analysis-ready Pandas DataFrame

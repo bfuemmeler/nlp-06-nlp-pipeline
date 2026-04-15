@@ -1,6 +1,5 @@
 """
-stage04_analyze_case.py
-(EDIT YOUR COPY OF THIS FILE)
+stage04_analyze_fuemmeler.py
 
 Source: analysis-ready Pandas DataFrame (from Transform stage)
 Sink:   visualizations saved to data/processed/
