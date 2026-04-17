@@ -321,3 +321,165 @@
 2026-04-17 13:10:51 | INFO | CI | ========================
 2026-04-17 13:10:51 | INFO | CI | Pipeline executed successfully!
 2026-04-17 13:10:51 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | === RUN START ===
+2026-04-17 13:28:10 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-17 13:28:10 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-17 13:28:10 | INFO | CI | python=3.14.3
+2026-04-17 13:28:10 | INFO | CI | os=Windows 11
+2026-04-17 13:28:10 | INFO | CI | shell=powershell
+2026-04-17 13:28:10 | INFO | CI | cwd=.
+2026-04-17 13:28:10 | INFO | CI | github_actions=False
+2026-04-17 13:28:10 | INFO | CI | START PIPELINE
+2026-04-17 13:28:10 | INFO | CI | ROOT_PATH = .
+2026-04-17 13:28:10 | INFO | CI | DATA_PATH = data
+2026-04-17 13:28:10 | INFO | CI | RAW_PATH = data\raw
+2026-04-17 13:28:10 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2604.13260
+2026-04-17 13:28:10 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2604.13260
+2026-04-17 13:28:10 | INFO | CI | SINK PATH = data\raw\fuemmeler_raw.html
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-17 13:28:10 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-17 13:28:10 | INFO | CI | Top-level elements: ['html']
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: Title found: True
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: Authors found: True
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-17 13:28:10 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-17 13:28:10 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | Extracting metadata from HTML
+2026-04-17 13:28:10 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-17 13:28:10 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-17 13:28:10 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | Inspect: does the raw data look right?
+2026-04-17 13:28:10 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-17 13:28:10 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Extracted title: Which Voices Move Markets? Speaker Identity and the Cross-Section of Post-Earnings Returns
+2026-04-17 13:28:10 | INFO | CI | Extracted authors: Karmanpartap Singh Sidhu, Junyi Fan, Maryam Pishgar
+2026-04-17 13:28:10 | INFO | CI | Extracted abstract: We utilize FinBERT, a domain-specific transformer model, to parse 6.5 million sentences from 16,428 ...
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Extracted subjects: Quantitative Finance > Trading and Market Microstructure
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Extracted submission date: [Submitted on 14 Apr 2026]
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-17 13:28:10 | INFO | CI | ------------------------
+2026-04-17 13:28:10 | INFO | CI | Extracted arxiv_id: 2604.13260
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-17 13:28:10 | INFO | CI | Did we remove anything we should have kept?
+2026-04-17 13:28:10 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI |   abstract (raw):   We utilize FinBERT, a domain-specific transformer model, to parse 6.5 million sentences from 16,428 S&P 500 quarterly ea...
+2026-04-17 13:28:10 | INFO | CI |   abstract (clean): utilize finbert domainspecific transformer model parse 65 million sentences 16428 sp 500 quarterly earnings transcripts ...
+2026-04-17 13:28:10 | INFO | CI |   characters removed: 204 (18.4%)
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-17 13:28:10 | INFO | CI | Would any additional features help the analysis?
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI |   abstract_word_count: 147
+2026-04-17 13:28:10 | INFO | CI |   author_count:        3
+2026-04-17 13:28:10 | INFO | CI |   sentence_count:      5
+2026-04-17 13:28:10 | INFO | CI |   token_count:         108
+2026-04-17 13:28:10 | INFO | CI |   unique_token_count:  99
+2026-04-17 13:28:10 | INFO | CI |   type_token_ratio:    0.9167
+2026-04-17 13:28:10 | INFO | CI |   top 10 tokens:       ['utilize', 'finbert', 'domainspecific', 'transformer', 'model', 'parse', '65', 'million', 'sentences', '16428']
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-17 13:28:10 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'sentence_count']
+2026-04-17 13:28:10 | INFO | CI | DataFrame Details
+2026-04-17 13:28:10 | INFO | CI |   Title: Which Voices Move Markets? Speaker Identity and the Cross-Section of Post-Earnings Returns
+2026-04-17 13:28:10 | INFO | CI |   Author count: 3
+2026-04-17 13:28:10 | INFO | CI |   Abstract word count: 147
+2026-04-17 13:28:10 | INFO | CI |   Token count (clean): 108
+2026-04-17 13:28:10 | INFO | CI |   Type-token ratio: 0.9167
+2026-04-17 13:28:10 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2604.13260  Which Voices Move Markets? Speaker Identity an...          108            0.9167             3
+2026-04-17 13:28:10 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-17 13:28:10 | INFO | CI | Transformation complete.
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI |   Paper: Which Voices Move Markets? Speaker Identity and the Cross-Section of Post-Earnings Returns
+2026-04-17 13:28:10 | INFO | CI |   Abstract word count (raw):    147
+2026-04-17 13:28:10 | INFO | CI |   Token count (clean):          108
+2026-04-17 13:28:10 | INFO | CI |   Unique token count:           99
+2026-04-17 13:28:10 | INFO | CI |   Type-token ratio:             0.9167
+2026-04-17 13:28:10 | INFO | CI |   Author count:                 3
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:10 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-17 13:28:10 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI |   Saved bar chart to data\processed\fuemmeler_top_tokens.png
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI |   Saved word cloud to data\processed\fuemmeler_wordcloud.png
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-17 13:28:11 | INFO | CI |       1. finbert                        3
+2026-04-17 13:28:11 | INFO | CI |       2. t                              3
+2026-04-17 13:28:11 | INFO | CI |       3. model                          2
+2026-04-17 13:28:11 | INFO | CI |       4. earnings                       2
+2026-04-17 13:28:11 | INFO | CI |       5. sectionweighted                2
+2026-04-17 13:28:11 | INFO | CI |       6. sentiment                      2
+2026-04-17 13:28:11 | INFO | CI |       7. outofsample                    2
+2026-04-17 13:28:11 | INFO | CI |       8. utilize                        1
+2026-04-17 13:28:11 | INFO | CI |       9. domainspecific                 1
+2026-04-17 13:28:11 | INFO | CI |      10. transformer                    1
+2026-04-17 13:28:11 | INFO | CI |      11. parse                          1
+2026-04-17 13:28:11 | INFO | CI |      12. 65                             1
+2026-04-17 13:28:11 | INFO | CI |      13. million                        1
+2026-04-17 13:28:11 | INFO | CI |      14. sentences                      1
+2026-04-17 13:28:11 | INFO | CI |      15. 16428                          1
+2026-04-17 13:28:11 | INFO | CI |      16. sp                             1
+2026-04-17 13:28:11 | INFO | CI |      17. 500                            1
+2026-04-17 13:28:11 | INFO | CI |      18. quarterly                      1
+2026-04-17 13:28:11 | INFO | CI |      19. transcripts                    1
+2026-04-17 13:28:11 | INFO | CI |      20. 20152025                       1
+2026-04-17 13:28:11 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-17 13:28:11 | INFO | CI | Analysis complete.
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI | SINK PATH = data\processed\fuemmeler_processed.csv
+2026-04-17 13:28:11 | INFO | CI | ========================
+2026-04-17 13:28:11 | INFO | CI | Pipeline executed successfully!
+2026-04-17 13:28:11 | INFO | CI | ========================

@@ -447,3 +447,7 @@ LOG.info(f"  sentence_count:      {sentence_count}")
 
 # Update record directory
 - "sentence_count": sentence_count,
+
+## Phase 5 Apply Skill to New Problem
+# Change to new URL in config_fuemmeler.py
+-https://arxiv.org/abs/2604.13260
