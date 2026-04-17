@@ -424,12 +424,26 @@ of the pipeline.
 <!-- TODO: change image links to point to your outputs -->
 <!-- For example:
 
-![Bar Chart](./data/processed/yourname_top_tokens.png)
+![Bar Chart](./data/processed/fuemmeler_top_tokens.png)
 
-![Word Cloud](./data/processed/yourname_wordcloud.png)
+![Word Cloud](./data/processed/fuemmeler_wordcloud.png)
 
 -->
 
 ![Bar Chart](./docs/images/case_top_tokens.png)
 
 ![Word Cloud](./docs/images/case_wordcloud.png)
+
+## Phase 4 Make a Technical Modification
+# add a new column in Transform stage to calculate sentence count in the abstract
+    -# Calculate sentence count using spaCy (more accurate than split("."))
+if abstract_raw != "unknown":
+    doc = nlp(abstract_raw)
+    sentence_count: int = len(list(doc.sents))
+else:
+    sentence_count = 0
+
+LOG.info(f"  sentence_count:      {sentence_count}")
+
+# Update record directory
+- "sentence_count": sentence_count,

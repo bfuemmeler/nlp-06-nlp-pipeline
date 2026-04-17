@@ -383,6 +383,14 @@ def run_transform(
     )
     LOG.info(f"  author_count:        {author_count}")
 
+    # Calculate sentence count using spaCy's sentence segmentation on the raw abstract
+    if abstract_raw != "unknown":
+        doc = nlp(abstract_raw)
+        sentence_count: int = len(list(doc.sents))
+    else:
+        sentence_count = 0
+    LOG.info(f"  sentence_count:      {sentence_count}")
+
     # Tokenize the cleaned abstract
     tokens: list[str] = abstract_clean.split() if abstract_clean != "unknown" else []
     token_count: int = len(tokens)
@@ -416,6 +424,7 @@ def run_transform(
         "unique_token_count": unique_token_count,
         "type_token_ratio": type_token_ratio,
         "author_count": author_count,
+        "sentence_count": sentence_count,
     }
 
     df = pd.DataFrame([record])
