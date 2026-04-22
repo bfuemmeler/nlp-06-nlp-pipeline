@@ -421,18 +421,9 @@ of the pipeline.
 
 ## Example Output
 
-<!-- TODO: change image links to point to your outputs -->
-<!-- For example:
+![Bar Chart] C:\Repos\nlp-06-nlp-pipeline\data\processed\fuemmeler_top_tokens.png
 
-![Bar Chart](./data/processed/fuemmeler_top_tokens.png)
-
-![Word Cloud](./data/processed/fuemmeler_wordcloud.png)
-
--->
-
-![Bar Chart](./docs/images/case_top_tokens.png)
-
-![Word Cloud](./docs/images/case_wordcloud.png)
+![Word Cloud]C:\Repos\nlp-06-nlp-pipeline\data\processed\fuemmeler_wordcloud.png
 
 ## Phase 4 Make a Technical Modification
 # add a new column in Transform stage to calculate sentence count in the abstract
